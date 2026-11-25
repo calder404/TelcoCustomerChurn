@@ -119,7 +119,7 @@ At threshold 0.33 the model flags 483 customers: 272 true churners caught, 102 m
 
 Using simple probability tiers on the test set: **Low (<0.30)** 882 customers, 10.0% churned; **Medium (0.30-0.60)** 322 customers, 42.5% churned; **High (>0.60)** 205 customers, 72.7% churned.
 
-## 8. What drives churn
+## What drives churn
 
 **Permutation importance** (drop in test ROC-AUC when a customer attribute is shuffled): `tenure_months` (0.088) >> `contract` (0.046) > `dependents` (0.031) ~ `internet_service` (0.030); everything else is below 0.003 individually.
 
