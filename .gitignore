@@ -1,0 +1,70 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+ENV/
+.conda/
+
+# --- Jupyter ---
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*.nbconvert.ipynb
+
+#--others--
+/Project_Report.docx
+/Project_Report.md
+/Interview_Preparation.docx
+/Interview_Preparation.md
+
+# --- Temporary / intermediate / scratch ---
+tmp/
+temp/
+scratch/
+*.tmp
+*.bak
+*.log
+*.swp
+*~
+data/interim/
+data/processed/
+reports/tmp/
+~$*
+
+# --- Large generated artefacts (re-create with `python -m src.train`) ---
+models/*.pkl
+models/checkpoints/
+*.h5
+*.ckpt
+catboost_info/
+lightning_logs/
+mlruns/
+
+# --- Local configuration & secrets ---
+.env
+.env.*
+*.secret
+secrets.*
+credentials*.json
+*.pem
+*.key
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# NOTE: kept on purpose (small, part of the deliverable):
+#   data/raw/Telco_customer_churn.xlsx, models/best_model.joblib, models/model_metadata.json,
+#   reports/figures/*.png, reports/metrics/*, notebooks/*.ipynb (with outputs), docs/*
