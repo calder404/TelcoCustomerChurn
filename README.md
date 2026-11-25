@@ -56,7 +56,7 @@ Competitor offers are the largest theme (33.2% of churners), followed by support
 Month-to-month + fiber + no tech support + tenure <= 12 months: **833 customers (11.8% of base), 71.1% churn, 31.7% of all churners.**
 Month-to-month customers overall make up **88.6% of all churners**.
 
-## 6. Modelling & evaluation
+## Modelling & evaluation
 
 **Protocol.** Stratified 80/20 split (5,634 train / 1,409 test, seed 42). All preprocessing and feature engineering sit inside one scikit-learn `Pipeline`, so nothing leaks from validation folds. Models were compared with 5-fold stratified CV on the training data (primary metric ROC-AUC, secondary PR-AUC), tuned with `RandomizedSearchCV` (12 samples each), and the best was selected by CV score. The test set was used only once for the final report.
 
@@ -76,7 +76,7 @@ Month-to-month customers overall make up **88.6% of all churners**.
 
 **Honest reading:** the four models are statistically very close (differences are smaller than fold-to-fold standard deviation). Gradient Boosting was selected because it had the best CV score under the rule fixed in advance; a plain regularised Logistic Regression is nearly as good and fully interpretable. Test metrics were *not* used to choose the model.
 
-## 7. Final model
+## Final model
 
 **Gradient Boosting** (`learning_rate=0.040, n_estimators=300, max_depth=2, min_samples_leaf=40, subsample=0.85`), saved at [`models/best_model.joblib`](models/best_model.joblib).
 
@@ -131,7 +131,7 @@ Using simple probability tiers on the test set: **Low (<0.30)** 882 customers, 1
 
 Reading these charts carefully: tenure, total charges, average spend and monthly charges are highly correlated, and `has_internet` duplicates `internet_service_No`, so individual coefficients can flip sign (e.g. `partner`) and should be interpreted as a group. Permutation importance also understates attributes whose information is shared with others (tech support, online security). The EDA rates above are the more reliable single-factor view.
 
-## 9. Business recommendations
+## Business recommendations
 
 These are based on associations in observational data; validate with A/B tests before scaling.
 
@@ -144,7 +144,7 @@ These are based on associations in observational data; validate with A/B tests b
 7. **Invest in support quality.** 29.1% of stated churn reasons are about support/service quality (attitude, expertise, self-service).
 8. **Operationalise.** Score customers monthly, monitor score distribution and calibration drift, and retrain regularly.
 
-## 10. Limitations
+## Limitations
 
 - Single snapshot, no timestamps: we predict *who*, not *when*, and cannot examine price changes or campaigns over time.
 - The data is a public IBM sample (fictional company, one US state); performance and patterns may not transfer to a real operator.
